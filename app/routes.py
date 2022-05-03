@@ -10,21 +10,21 @@ PORT = os.environ.get('RESTAPI_PORT')
 
 @app.route('/', methods=['GET'])
 def Home():
-    return render_template('index.html', title='Kv-DevOps-094')
+    return render_template('index.html', title='Kv-126-DevOps')
 
 
 @app.route('/issues/', methods=['GET'])
 def getIssues():
     request = requests.get(f'http://{HOST}:{PORT}/issues/')
     request_data = json.loads(request.content)
-    return render_template('issues.html', title='Kv-DevOps-094', request_data=request_data)
+    return render_template('issues.html', title='Kv-126-DevOps', request_data=request_data)
 
 
 @app.route('/labels/', methods=['GET'])
 def getLabels():
     request = requests.get(f'http://{HOST}:{PORT}/labels/')
     request_data = json.loads(request.content)
-    return render_template('labels.html', title='Kv-DevOps-094', request_data=request_data)
+    return render_template('labels.html', title='Kv-126-DevOps', request_data=request_data)
 
 
 @app.route('/issues/by-label/<label>', methods=['GET'])
