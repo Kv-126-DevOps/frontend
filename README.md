@@ -1,3 +1,12 @@
+### Frontend app
+
+git clone --branch 1_frontend_code_refactoring https://github.com/Kv-126-DevOps/frontend.git /opt/frontend
+docker run --network=kv126 -d --name frontend -e RESTAPI_HOST=rest-api -e RESTAPI_PORT=5000 -v /opt/frontend:/app -p 80:5000 python:3.9-slim sleep infinity
+docker exec frontend pip install -r /app/requirements.txt
+docker exec -d frontend bash -c "cd /app && flask run --host=0.0.0.0"
+
+### Setuping and Starting microservice
+
 ### Step 1 - Create infrastructure
 
 		docker network create -d bridge kv126
