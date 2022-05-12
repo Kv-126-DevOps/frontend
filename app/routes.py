@@ -5,7 +5,7 @@ import json
 import os
 
 HOST = os.environ.get('RESTAPI_HOST')
-PORT = os.environ.get('RESTAPI_PORT')
+PORT = os.environ.get('RESTAPI_PORT', 5000)
 
 
 @app.route('/', methods=['GET'])
