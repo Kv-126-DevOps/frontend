@@ -6,7 +6,7 @@
     docker exec frontend pip install -r /app/requirements.txt
     docker exec -d frontend bash -c "cd /app && flask run --host=0.0.0.0"
 
-### Setuping and Starting microservice
+### Setting up and running a microservice
 
 ### Step 1 - Create infrastructure
 
