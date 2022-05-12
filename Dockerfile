@@ -4,16 +4,15 @@ RUN useradd serve
 
 WORKDIR /home/serve
 
-COPY requirements.txt requirements.txt
+COPY --chown=kvuser:kvuser requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY app app
-COPY frontend.py config.py ./
+COPY  --chown=kvuser:kvuser app app
+COPY  --chown=kvuser:kvuser frontend.py config.py ./
 
 ENV FLASK_APP frontend.py
 
-RUN chown -R serve:serve ./
-USER serve
+USER kvuser
 
 EXPOSE 80
 
