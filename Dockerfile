@@ -1,8 +1,8 @@
 FROM python:3.9-slim
 
-RUN useradd serve
+RUN useradd kvuser
 
-WORKDIR /home/serve
+WORKDIR /home/kvuser
 
 COPY --chown=kvuser:kvuser requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
