@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to Kv-126-DevOps!</h1>
+    <hr>
+        <table id="data" class="table table-striped">
+        <thead>
+            <tr>
+                <th>IssueId</th>
+                <th>Body</th>
+                <th>Number</th>
+                <th>Title</th>
+                <th>HtmlUrl</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in request_data %}
+                <tr class="card-list">
+                    <td>{{ item['IssueId'] }}</td>
+                    <td>{{ item['Body'] }}</td>
+                    <td>{{ item['Number'] }}</td>
+                    <td>{{ item['Title'] }}</td>
+                    <td>{{ item['HtmlUrl'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to Kv-126-DevOps!</h1>
+    <hr>
+        <iframe src="/static/issue_project_v3.pdf" class="pdf"></iframe>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

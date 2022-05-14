@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to Kv-126-DevOps!</h1>
+    <hr>
+        <table id="data" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Issue</th>
+                <th>IssueHtmlUrl</th>
+                <th>IssueId</th>
+                <th>ModifiedDate</th>
+                <th>State</th>
+                <th>UserAvatarUrl</th>
+                <th>UserHtmlUrl</th>
+                <th>UserId</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in request_data %}
+                <tr class="card-list">
+                    <td>{{ item['Action'] }}</td>
+                    <td>{{ item['Issue'] }}</td>
+                    <td>{{ item['IssueHtmlUrl'] }}</td>
+                    <td>{{ item['IssueId'] }}</td>
+                    <td>{{ item['ModifiedDate'] }}</td>
+                    <td>{{ item['State'] }}</td>
+                    <td class="card card--opened">
+                        <a href="{{ item['UserAvatarUrl'] }}">
+                            <img class="card__photo" src="{{ item['UserAvatarUrl'] }}">
+                        </a>
+                    </td>
+                    <td>{{ item['UserHtmlUrl'] }}</td>
+                    <td>{{ item['UserId'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

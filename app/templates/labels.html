@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Labels!</h1>
+    <hr>
+        <table id="data" class="table table-striped">
+        <thead>
+            <tr>
+                <th>LabelId</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in request_data %}
+                <tr class="card-list">
+                    <td>{{ item['LabelId'] }}</td>
+                    <td>{{ item['Title'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}
